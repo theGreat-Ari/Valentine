@@ -1,0 +1,279 @@
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(#ffe4ec,#ffd6e0);
+  font-family:sans-serif;
+  text-align:center;
+  overflow:hidden;
+}
+
+.slide{
+  position:relative;
+}
+
+.title{
+  color:#c9184a;
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.bear{
+  width:180px;
+  margin:15px 0;
+}
+
+.love{
+  font-size:20px;
+  margin:5px;
+}
+
+.face{
+  font-size:22px;
+  margin:5px;
+}
+
+.click{
+  margin:10px;
+  font-size:15px;
+}
+
+button{
+  margin-top:15px;
+  padding:15px 35px;
+  border:none;
+  border-radius:30px;
+  background:#e63946;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+.heart{
+  position:absolute;
+  top:-30px;
+  font-size:25px;
+}
+
+.left{
+  left:-40px;
+}
+
+.right{
+  right:-40px;
+}
+
+/* animasi hati jatuh */
+
+.hearts{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+.heart-fall{
+  position:absolute;
+  color:#ff4d6d;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(100vh);
+    opacity:0;
+  }
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  opacity:0;
+  transform:translateX(100%);
+  transition:0.7s;
+}
+
+.slide.active{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,120px);
+  gap:15px;
+  margin-top:20px;
+}
+
+.gallery img{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  transition:.3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.08);
+}
+
+button{
+  margin-top:25px;
+  padding:12px 24px;
+  border:none;
+  border-radius:25px;
+  background:white;
+  color:#ff4d6d;
+  font-weight:bold;
+  cursor:pointer;
+}
+/* Container Letter */
+.letter{
+  max-width:90%;
+  width:400px; /* default desktop */
+  background: rgba(255,255,255,0.15);
+  padding:25px;
+  border-radius:20px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  margin-top:20px;
+  text-align:left;
+  overflow:hidden;
+}
+
+/* Span pertama pakai Great Vibes */
+.letter .first-line{
+  font-family: 'Great Vibes', cursive;
+  font-size:2rem;
+}
+
+/* Sisanya pakai Alex Brush */
+.letter span:not(.first-line){
+  font-family: 'Alex Brush', cursive;
+  font-size:1.2rem;
+  display:block;
+  opacity:0;
+  transform:translateY(15px);
+  animation:fadeLine .8s forwards;
+}
+
+/* Delay animasi tiap baris */
+.letter span:nth-child(1){ animation-delay:.3s; }
+.letter span:nth-child(2){ animation-delay:1s; }
+.letter span:nth-child(3){ animation-delay:1.7s; }
+.letter span:nth-child(4){ animation-delay:2.4s; }
+.letter span:nth-child(5){ animation-delay:3.1s; }
+.letter span:nth-child(6){ animation-delay:3.8s; }
+.letter span:nth-child(7){ animation-delay:4.5s; }
+.letter span:nth-child(8){ animation-delay:5.2s; }
+.letter span:nth-child(9){ animation-delay:5.9s; }
+.letter span:nth-child(10){ animation-delay:6.6s; }
+.letter span:nth-child(11){ animation-delay:7.3s; }
+
+/* Animasi per baris */
+@keyframes fadeLine{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Responsive: layar kecil */
+@media screen and (max-width:480px){
+  .letter{
+    width:95%;
+    padding:20px;
+  }
+  .letter .first-line{
+    font-size:1.6rem;
+  }
+  .letter span:not(.first-line){
+    font-size:1rem;
+  }
+}
+
+/* Navigasi tombol */
+.nav{
+  margin-top:25px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+button{
+  padding:12px 24px;
+  border:none;
+  border-radius:25px;
+  background:white;
+  color:#ff4d6d;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+button:hover{
+  transform:scale(1.05);
+}
+.slide h1{
+  font-family: 'Great Vibes', cursive;
+  font-size:3rem;
+  text-align:center;
+  color:#ff4d6d;
+  margin-bottom:15px;
+  text-shadow:0 0 20px rgba(255,77,109,0.8);
+}
+
+.closing-text{
+  font-family: 'Alex Brush', cursive;
+  font-size:1.5rem;
+  text-align:center;
+  color:white;
+  margin-bottom:30px;
+}
+
+.hearts{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+button{
+  padding:12px 24px;
+  border:none;
+  border-radius:25px;
+  background:white;
+  color:#ff4d6d;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+button:hover{
+  transform:scale(1.05);
+}
+
+.nav{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+}

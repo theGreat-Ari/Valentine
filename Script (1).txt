@@ -1,0 +1,77 @@
+<script>
+const slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function showSlide(i){
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[i].classList.add("active");
+}
+
+function nextSlide(){
+  if(current < slides.length - 1){
+    current++;
+    showSlide(current);
+  }
+}
+
+function prevSlide(){
+  if(current > 0){
+    current--;
+    showSlide(current);
+  }
+}
+
+/* optional: kontrol keyboard */
+document.addEventListener("keydown", e=>{
+  if(e.key==="ArrowRight") nextSlide();
+  if(e.key==="ArrowLeft") prevSlide();
+});
+
+/* optional: swipe HP */
+let startX=0;
+document.addEventListener("touchstart",e=>{
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend",e=>{
+  let endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) nextSlide();
+  if(endX - startX > 50) prevSlide();
+});
+</script>
+
+<script>
+const btn = document.getElementById("surpriseBtn");
+const song = document.getElementById("valentineSong");
+
+btn.addEventListener("click", () => {
+  // Mainkan musik
+  song.play();
+
+  // Hati jatuh
+  for(let i=0;i<30;i++){
+    createHeart();
+  }
+});
+
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.style.position = "absolute";
+  heart.style.fontSize = `${Math.random()*20 + 20}px`;
+  heart.style.left = `${Math.random()*100}%`;
+  heart.style.top = `-50px`;
+  heart.style.opacity = Math.random();
+  heart.style.transition = "all 3s linear";
+  document.querySelector(".hearts").appendChild(heart);
+
+  setTimeout(()=>{
+    heart.style.top = "100%";
+    heart.style.opacity = 0;
+  },50);
+
+  setTimeout(()=>{
+    heart.remove();
+  },3050);
+}
+</script>
